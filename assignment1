@@ -1,0 +1,49 @@
+package test;
+
+import java.math.BigDecimal;
+import java.util.Scanner;
+
+public class hongbao {
+
+	    public static void main(String []args){
+        Scanner scan = new Scanner(System.in);
+        java.text.DecimalFormat df=new java.text.DecimalFormat(".00"); 
+        
+	    System.out.println("请输入红包金额："); 
+	    double all_money=scan.nextInt();
+	    System.out.println("\n"); 
+	    
+	    System.out.println("请输入人数："); 
+	    int counts=scan.nextInt();
+	    System.out.println("\n");
+	    
+	    System.out.println("红包金额分配如下：\n");	    
+	    double lucky=0;
+	    double lucky1;
+	    int i=0,j=0;
+	    double[] money=new double[counts];
+	    double total=0.0;
+	    while(i<counts)
+	    {money[i]=0+(double)(Math.random()*10);     
+	     total=total+money[i];
+	     i++;}
+	    
+
+	    
+	    while(j<counts-1)
+	    {lucky=money[j]*all_money/total;
+	     BigDecimal b=new BigDecimal(lucky); 
+	     lucky1=b.setScale(2,BigDecimal.ROUND_HALF_UP).doubleValue();
+	     j++;
+	     System.out.println("第"+j+"个人获得"+lucky1+"元钱!\n");
+	     all_money=all_money-lucky1;
+	    }
+	     double money1;
+	     BigDecimal c=new BigDecimal(all_money); 
+	     money1=c.setScale(2,BigDecimal.ROUND_HALF_UP).doubleValue();	    
+	    System.out.println("第"+(j+1)+"个人获得"+money1+"元钱!\n");
+ 
+	    }
+	    
+	    
+	}
